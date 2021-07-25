@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout/layout :: head"></head>
+<body>
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="col d-flex justify-content-center">
+                <h3 class="col-4 mb-0">Edit City</h3>
+            </div>
+        </div>
+    </div>
+    <div id="deleteCity">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form th:action="@{/city/edit-city}" th:object="${city}" method="post">
+                    <input type="hidden" name="id" th:field="*{id}">
+                    <div class="modal-header">
+                        <h4 class="modal-title">City Information</h4>
+                        <a  th:href="@{/city/list}" type="button" style="margin-left: 10px;height: 50px" class="btn btn-secondary close-form" aria-hidden="true"><i class="fas fa-window-close"></i></a>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input th:field="*{name}" name="name" type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Country</label>
+                            <select name="country" id="upCountry">
+                                <option th:each="c : ${countries}"
+                                        th:value="${c.id}"
+                                        th:text="${c.name}"
+                                        th:selected="(${city.country}) and (${c.id} == *{country.id})"></option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Acreage</label>
+                            <input th:field="*{acreage}" name="acreage" type="number" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Population</label>
+                            <input th:field="*{population}"  name="population" type="number" class="form-control" required>
+                        </div>
+                        <div class="md-6 form-group">
+                            <label class="col-form-label">GDP</label>
+                            <input th:field="*{GDP}" type="number" class="form-control" id="GDP"  required>
+                        </div>
+                        <div class="md-6 form-group">
+                            <label class="col-form-label">Description</label>
+                            <input th:field="*{description}" type="text" class="form-control" id="description" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-success" value="Save changes">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
