@@ -3,7 +3,7 @@
 <head th:replace="/layout/layout :: head"></head>
 <body>
 <div class="col d-flex justify-content-center">
-    <h3 class="col-4">City Information</h3>
+    <h3 class="col-6 mt-1">City Information</h3>
 </div>
 <div class="notify d-flex justify-content-center">
     <div th:if="${message}">
@@ -11,7 +11,7 @@
     </div>
 </div>
     <div class="col d-flex justify-content-center">
-        <form id="form-create" th:object="${city}" method="post" th:action="@{/city/save-city}">
+        <form id="form" th:object="${city}" method="post" th:action="@{/city/save-city}">
             <div class="row">
                 <div class="md-6 form-group">
                     <label>Name</label>

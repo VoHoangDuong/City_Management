@@ -6,52 +6,49 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="col d-flex justify-content-center">
-                <h3 class="col-4 mb-0"><b>Delete City</b></h3>
-            </div>
+                <h3 class="col-6 mb-1 mt-1"><b>Delete City</b></h3>
             </div>
         </div>
     </div>
     <div id="deleteCity">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form th:action="@{/city/delete-city}" th:object="${city}" method="post">
-                    <input type="hidden" name="id" th:field="*{id}">
-                    <div class="modal-header">
-                        <h4 class="modal-title">City Information</h4>
-                        <a  th:href="@{/city/list}" type="button" style="margin-left: 10px;height: 50px" class="btn btn-secondary close-form" aria-hidden="true"><i class="fas fa-window-close"></i></a>
+        <div class="col d-flex justify-content-center">
+            <form id="form" th:action="@{/city/delete-city}" th:object="${city}" method="post">
+                <input type="hidden" name="id" th:field="*{id}">
+                <div class="modal-header">
+                    <h4 class="modal-title">City Information</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input th:field="*{name}" name="name" type="text" class="form-control" required readonly>
                     </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input th:field="*{name}" name="name" type="text" class="form-control" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>Country</label>
-                            <p th:if="*{country}" th:text="*{country.name}" readonly></p>
-                            <input th:unless="*{country}" readonly/>
-                        </div>
-                        <div class="form-group">
-                            <label>Acreage</label>
-                            <input th:field="*{acreage}" name="acreage" type="number" class="form-control" required readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>Population</label>
-                            <input th:field="*{population}"  name="population" type="number" class="form-control" required readonly>
-                        </div>
-                        <div class="md-6 form-group">
-                            <label class="col-form-label">GDP</label>
-                            <input th:field="*{GDP}" type="number" class="form-control" id="GDP"  required readonly >
-                        </div>
-                        <div class="md-6 form-group">
-                            <label class="col-form-label">Description</label>
-                            <input th:field="*{description}" type="text" class="form-control" id="description" required readonly>
-                        </div>
+                    <div class="form-group">
+                        <label>Country</label>
+                        <p th:if="*{country}" th:text="*{country.name}" readonly></p>
+                        <input th:unless="*{country}" readonly/>
                     </div>
-                    <div class="modal-footer">
-                        <input type="submit" class="btn btn-success" value="Delete">
+                    <div class="form-group">
+                        <label>Acreage</label>
+                        <input th:field="*{acreage}" name="acreage" type="number" class="form-control" required readonly>
                     </div>
-                </form>
-            </div>
+                    <div class="form-group">
+                        <label>Population</label>
+                        <input th:field="*{population}"  name="population" type="number" class="form-control" required readonly>
+                    </div>
+                    <div class="md-6 form-group">
+                        <label class="col-form-label">GDP</label>
+                        <input th:field="*{GDP}" type="number" class="form-control" id="GDP"  required readonly >
+                    </div>
+                    <div class="md-6 form-group">
+                        <label class="col-form-label">Description</label>
+                        <input th:field="*{description}" type="text" class="form-control" id="description" required readonly>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <input type="submit" class="btn btn-success" value="Delete">
+                    <h5 class="back mt-2"><a th:href="@{/city/list}">Back To List</a></h5>
+                </div>
+            </form>
         </div>
     </div>
 </div>

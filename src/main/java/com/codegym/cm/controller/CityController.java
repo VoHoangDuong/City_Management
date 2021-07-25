@@ -3,7 +3,7 @@ package com.codegym.cm.controller;
 import com.codegym.cm.model.City;
 import com.codegym.cm.model.Country;
 import com.codegym.cm.service.city.ICityService;
-import com.codegym.cm.service.conntry.ICountryService;
+import com.codegym.cm.service.country.ICountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

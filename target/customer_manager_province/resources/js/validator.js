@@ -1,4 +1,4 @@
-$("#form-create").validate({
+$("#form").validate({
     rules: {
         name: {
             required: true,
@@ -28,8 +28,8 @@ $("#form-create").validate({
 
     messages: {
         name: {
-            required: (("#FF0000")+("Please enter your City name !!!")),
-            minlength:"Minimum length of 5 characters !!"
+            required:"Please enter your City name !!!",
+            minlength:"Minimum length of 5 characters !!",
         },
         country: {
             required: "Please choose a country !!",
@@ -56,7 +56,3 @@ $("#form-create").validate({
         form.submit();
     }
 });
-
-$.validator.addMethod("validatePassword", function (value, element) {
-    return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/i.test(value);
-}, "Hãy nhập password từ 8 đến 16 ký tự bao gồm chữ hoa, chữ thường và ít nhất một chữ số");
